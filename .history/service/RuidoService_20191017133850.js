@@ -40,7 +40,7 @@ module.exports.deleteNoise = function(req, res, next) {
 module.exports.getNoise = function(req, res, next) {
     //Parameters
     console.log(req.date.originalValue);
-    var query = "SELECT * FROM Noise WHERE date = '" + req.date.originalValue + "'"
+    var query = "SELECT * FROM Luminosity WHERE date = '" + req.date.originalValue + "'"
     connection.query(query, function (error, results, fields) {
         if (error) throw error;
         console.log('The solution is: ', results);
@@ -60,19 +60,9 @@ module.exports.getNoise = function(req, res, next) {
  **/
 module.exports.postNoise = function(req, res, next) {
     //Parameters
-    console.log(req.undefined.originalValue.amount);
-    var query = 'INSERT INTO Noise SET ?'
-    var date = new Date();
-    var data = {
-        amount: req.undefined.originalValue.amount,
-        date: date
-    }
-    connection.query(query, [data], function (error, results, fields) {
-        if (error) throw error;
-        console.log('The solution is: ', results);
-        res.send({
-            message: results
-        });
+    console.log(req);
+    res.send({
+        message: 'This is the mockup controller for postNoise'
     });
 };
 
@@ -87,17 +77,8 @@ module.exports.postNoise = function(req, res, next) {
 module.exports.putNoise = function(req, res, next) {
     //Parameters
     console.log(req);
-    var query = 'UPDATE Noise SET ? WHERE id = ' + req.undefined.originalValue.idLNoise
-    var data = {
-        amount: req.undefined.originalValue.amount,
-        date: req.undefined.originalValue.date
-    }
-    connection.query(query, [data], function (error, results, fields) {
-        if (error) throw error;
-        console.log('The solution is: ', results);
-        res.send({
-            message: results
-        });
+    res.send({
+        message: 'This is the mockup controller for putNoise'
     });
 };
 

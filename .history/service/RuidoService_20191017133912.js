@@ -61,7 +61,7 @@ module.exports.getNoise = function(req, res, next) {
 module.exports.postNoise = function(req, res, next) {
     //Parameters
     console.log(req.undefined.originalValue.amount);
-    var query = 'INSERT INTO Noise SET ?'
+    var query = 'INSERT INTO Luminosity SET ?'
     var date = new Date();
     var data = {
         amount: req.undefined.originalValue.amount,
@@ -87,17 +87,8 @@ module.exports.postNoise = function(req, res, next) {
 module.exports.putNoise = function(req, res, next) {
     //Parameters
     console.log(req);
-    var query = 'UPDATE Noise SET ? WHERE id = ' + req.undefined.originalValue.idLNoise
-    var data = {
-        amount: req.undefined.originalValue.amount,
-        date: req.undefined.originalValue.date
-    }
-    connection.query(query, [data], function (error, results, fields) {
-        if (error) throw error;
-        console.log('The solution is: ', results);
-        res.send({
-            message: results
-        });
+    res.send({
+        message: 'This is the mockup controller for putNoise'
     });
 };
 

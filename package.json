@@ -1,0 +1,22 @@
+{
+  "name": "healthypork",
+  "description": "Esta API provee los servicios necesarios para gestionar los datos recogidos por los dispositivos Arduino y sus sensores.",
+  "main": "index.js",
+  "scripts": {
+    "prestart": "npm install",
+    "start": "node index.js"
+  },
+  "keywords": [
+    "OAI"
+  ],
+  "license": "Unlicense",
+  "private": true,
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "connect": "^3.2.0",
+    "express": "^4.16.3",
+    "js-yaml": "^3.3.0",
+    "mysql": "^2.17.1",
+    "oas-tools": "^2.1.4"
+  }
+}

@@ -1,0 +1,1268 @@
+openapi: 3.0.1
+info:
+  contact:
+    email: dgarciajyz@alumnos.unex.es
+    name: HealthyPork
+    url: http://spilab.es/
+  description: Esta API provee los servicios necesarios para gestionar los datos recogidos
+    por los dispositivos Arduino y sus sensores.
+  termsOfService: http://spilab.es/
+  title: HealthyPork
+  version: "1.0"
+servers:
+- url: /
+paths:
+  /ozone:
+    delete:
+      description: Eliminado un dato de ozono guardado en la base de datos.
+      operationId: deleteOzone
+      parameters:
+      - description: Id del coste
+        explode: true
+        in: query
+        name: idOzone
+        required: true
+        schema:
+          format: int32
+          type: integer
+        style: form
+      responses:
+        201:
+          content:
+            text/plain:
+              schema:
+                example: Created
+                title: Created
+                type: string
+          description: Created
+        404:
+          content:
+            text/plain:
+              schema:
+                example: Not found
+                title: Endpoint not found
+                type: string
+          description: Not found response
+        405:
+          content:
+            text/plain:
+              schema:
+                example: The format is not valid
+                title: Invalid input
+                type: string
+          description: Invalid input
+      summary: Eliminado de datos de ozono
+      tags:
+      - Ozono
+      x-swagger-router-controller: Ozono
+    get:
+      description: Devuelve todos los datos relacionados con el ozono.
+      operationId: getOzone
+      responses:
+        201:
+          content:
+            text/plain:
+              schema:
+                example: Created
+                title: Created
+                type: string
+          description: Created
+        404:
+          content:
+            text/plain:
+              schema:
+                example: Not found
+                title: Endpoint not found
+                type: string
+          description: Not found response
+        405:
+          content:
+            text/plain:
+              schema:
+                example: The format is not valid
+                title: Invalid input
+                type: string
+          description: Invalid input
+      summary: Devuelve todos los datos relacionados con el ozono.
+      tags:
+      - Ozono
+      x-swagger-router-controller: Ozono
+    post:
+      description: Creacion de nuevos datos asociados al ozono recogido.
+      operationId: postOzone
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Ozone'
+        required: true
+      responses:
+        201:
+          content:
+            text/plain:
+              schema:
+                example: Created
+                title: Created
+                type: string
+          description: Created
+        404:
+          content:
+            text/plain:
+              schema:
+                example: Not found
+                title: Endpoint not found
+                type: string
+          description: Not found response
+        405:
+          content:
+            text/plain:
+              schema:
+                example: The format is not valid
+                title: Invalid input
+                type: string
+          description: Invalid input
+      summary: Registra un nuevo dato de ozono
+      tags:
+      - Ozono
+      x-swagger-router-controller: Ozono
+    put:
+      description: Modifica un dato de ozono previamente registrado
+      operationId: putOzone
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Ozone'
+        required: true
+      responses:
+        201:
+          content:
+            text/plain:
+              schema:
+                example: Created
+                title: Created
+                type: string
+          description: Created
+        404:
+          content:
+            text/plain:
+              schema:
+                example: Not found
+                title: Endpoint not found
+                type: string
+          description: Not found response
+        405:
+          content:
+            text/plain:
+              schema:
+                example: The format is not valid
+                title: Invalid input
+                type: string
+          description: Invalid input
+      summary: Modifica un dato de ozono previamente registrado
+      tags:
+      - Ozono
+      x-swagger-router-controller: Ozono
+  /airquality:
+    delete:
+      description: Eliminado un dato de la calidad del aire guardado en la base de
+        datos.
+      operationId: deleteAirQuality
+      parameters:
+      - description: Id de la calidad del aire
+        explode: true
+        in: query
+        name: idAirQuality
+        required: true
+        schema:
+          format: int32
+          type: integer
+        style: form
+      responses:
+        201:
+          content:
+            text/plain:
+              schema:
+                example: Created
+                title: Created
+                type: string
+          description: Created
+        404:
+          content:
+            text/plain:
+              schema:
+                example: Not found
+                title: Endpoint not found
+                type: string
+          description: Not found response
+        405:
+          content:
+            text/plain:
+              schema:
+                example: The format is not valid
+                title: Invalid input
+                type: string
+          description: Invalid input
+      summary: Eliminado de datos de la calidad del aire.
+      tags:
+      - Calidad del aire
+      x-swagger-router-controller: CalidadDelAire
+    get:
+      description: Devuelve todos los datos relacionados con la calidad del aire.
+      operationId: getAirQuality
+      parameters:
+      - description: Fecha de la recogida de la información
+        explode: true
+        in: query
+        name: date
+        required: true
+        schema:
+          type: string
+        style: form
+      responses:
+        201:
+          content:
+            text/plain:
+              schema:
+                example: Created
+                title: Created
+                type: string
+          description: Created
+        404:
+          content:
+            text/plain:
+              schema:
+                example: Not found
+                title: Endpoint not found
+                type: string
+          description: Not found response
+        405:
+          content:
+            text/plain:
+              schema:
+                example: The format is not valid
+                title: Invalid input
+                type: string
+          description: Invalid input
+      summary: Devuelve todos los datos relacionados con la calidad del aire.
+      tags:
+      - Calidad del aire
+      x-swagger-router-controller: CalidadDelAire
+    post:
+      description: Creacion de nuevos datos asociados a la calidad del aire.
+      operationId: postAirQuality
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AirQuality'
+        required: true
+      responses:
+        201:
+          content:
+            text/plain:
+              schema:
+                example: Created
+                title: Created
+                type: string
+          description: Created
+        404:
+          content:
+            text/plain:
+              schema:
+                example: Not found
+                title: Endpoint not found
+                type: string
+          description: Not found response
+        405:
+          content:
+            text/plain:
+              schema:
+                example: The format is not valid
+                title: Invalid input
+                type: string
+          description: Invalid input
+      summary: Registra un nuevo dato de calidad del aire.
+      tags:
+      - Calidad del aire
+      x-swagger-router-controller: CalidadDelAire
+    put:
+      description: Modifica un dato de calidad del aire previamente registrado
+      operationId: putAirQuality
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AirQuality'
+        required: true
+      responses:
+        201:
+          content:
+            text/plain:
+              schema:
+                example: Created
+                title: Created
+                type: string
+          description: Created
+        404:
+          content:
+            text/plain:
+              schema:
+                example: Not found
+                title: Endpoint not found
+                type: string
+          description: Not found response
+        405:
+          content:
+            text/plain:
+              schema:
+                example: The format is not valid
+                title: Invalid input
+                type: string
+          description: Invalid input
+      summary: Modifica un dato de calidad del aire previamente registrado
+      tags:
+      - Calidad del aire
+      x-swagger-router-controller: CalidadDelAire
+  /luminosity:
+    delete:
+      description: Eliminado un dato de luminosidad en la base de datos.
+      operationId: deleteLuminosity
+      parameters:
+      - description: Id del dato de luminosidad
+        explode: true
+        in: query
+        name: idLuminosity
+        required: true
+        schema:
+          format: int32
+          type: integer
+        style: form
+      responses:
+        201:
+          content:
+            text/plain:
+              schema:
+                example: Created
+                title: Created
+                type: string
+          description: Created
+        404:
+          content:
+            text/plain:
+              schema:
+                example: Not found
+                title: Endpoint not found
+                type: string
+          description: Not found response
+        405:
+          content:
+            text/plain:
+              schema:
+                example: The format is not valid
+                title: Invalid input
+                type: string
+          description: Invalid input
+      summary: Eliminado de datos de luminosidad.
+      tags:
+      - Luminosidad
+      x-swagger-router-controller: Luminosidad
+    get:
+      description: Devuelve todos los datos relacionados con la luminosidad.
+      operationId: getLuminosity
+      parameters:
+      - description: Fecha de la recogida de la información
+        explode: true
+        in: query
+        name: date
+        required: true
+        schema:
+          type: string
+        style: form
+      responses:
+        201:
+          content:
+            text/plain:
+              schema:
+                example: Created
+                title: Created
+                type: string
+          description: Created
+        404:
+          content:
+            text/plain:
+              schema:
+                example: Not found
+                title: Endpoint not found
+                type: string
+          description: Not found response
+        405:
+          content:
+            text/plain:
+              schema:
+                example: The format is not valid
+                title: Invalid input
+                type: string
+          description: Invalid input
+      summary: Devuelve todos los datos relacionados con la luminosidad.
+      tags:
+      - Luminosidad
+      x-swagger-router-controller: Luminosidad
+    post:
+      description: Creacion de nuevos datos asociados a la luminosidad.
+      operationId: postLuminosity
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Luminosity'
+        required: true
+      responses:
+        201:
+          content:
+            text/plain:
+              schema:
+                example: Created
+                title: Created
+                type: string
+          description: Created
+        404:
+          content:
+            text/plain:
+              schema:
+                example: Not found
+                title: Endpoint not found
+                type: string
+          description: Not found response
+        405:
+          content:
+            text/plain:
+              schema:
+                example: The format is not valid
+                title: Invalid input
+                type: string
+          description: Invalid input
+      summary: Registra un nuevo dato de luminosidad.
+      tags:
+      - Luminosidad
+      x-swagger-router-controller: Luminosidad
+    put:
+      description: Modifica un dato de luminosidad previamente registrado
+      operationId: putLuminosity
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Luminosity'
+        required: true
+      responses:
+        201:
+          content:
+            text/plain:
+              schema:
+                example: Created
+                title: Created
+                type: string
+          description: Created
+        404:
+          content:
+            text/plain:
+              schema:
+                example: Not found
+                title: Endpoint not found
+                type: string
+          description: Not found response
+        405:
+          content:
+            text/plain:
+              schema:
+                example: The format is not valid
+                title: Invalid input
+                type: string
+          description: Invalid input
+      summary: Modifica un dato de luminosidad previamente registrado
+      tags:
+      - Luminosidad
+      x-swagger-router-controller: Luminosidad
+  /noise:
+    delete:
+      description: Eliminado un dato de ruido en la base de datos.
+      operationId: deleteNoise
+      parameters:
+      - description: Id del dato de ruido
+        explode: true
+        in: query
+        name: idNoise
+        required: true
+        schema:
+          format: int32
+          type: integer
+        style: form
+      responses:
+        201:
+          content:
+            text/plain:
+              schema:
+                example: Created
+                title: Created
+                type: string
+          description: Created
+        404:
+          content:
+            text/plain:
+              schema:
+                example: Not found
+                title: Endpoint not found
+                type: string
+          description: Not found response
+        405:
+          content:
+            text/plain:
+              schema:
+                example: The format is not valid
+                title: Invalid input
+                type: string
+          description: Invalid input
+      summary: Eliminado de datos de ruido.
+      tags:
+      - Ruido
+      x-swagger-router-controller: Ruido
+    get:
+      description: Devuelve todos los datos relacionados con el ruido.
+      operationId: getNoise
+      parameters:
+      - description: Fecha de la recogida de la información
+        explode: true
+        in: query
+        name: date
+        required: true
+        schema:
+          type: string
+        style: form
+      responses:
+        201:
+          content:
+            text/plain:
+              schema:
+                example: Created
+                title: Created
+                type: string
+          description: Created
+        404:
+          content:
+            text/plain:
+              schema:
+                example: Not found
+                title: Endpoint not found
+                type: string
+          description: Not found response
+        405:
+          content:
+            text/plain:
+              schema:
+                example: The format is not valid
+                title: Invalid input
+                type: string
+          description: Invalid input
+      summary: Devuelve todos los datos relacionados con el ruido.
+      tags:
+      - Ruido
+      x-swagger-router-controller: Ruido
+    post:
+      description: Creacion de nuevos datos asociados al ruido.
+      operationId: postNoise
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Noise'
+        required: true
+      responses:
+        201:
+          content:
+            text/plain:
+              schema:
+                example: Created
+                title: Created
+                type: string
+          description: Created
+        404:
+          content:
+            text/plain:
+              schema:
+                example: Not found
+                title: Endpoint not found
+                type: string
+          description: Not found response
+        405:
+          content:
+            text/plain:
+              schema:
+                example: The format is not valid
+                title: Invalid input
+                type: string
+          description: Invalid input
+      summary: Registra un nuevo dato de ruido.
+      tags:
+      - Ruido
+      x-swagger-router-controller: Ruido
+    put:
+      description: Modifica un dato de ruido previamente registrado
+      operationId: putNoise
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Noise'
+        required: true
+      responses:
+        201:
+          content:
+            text/plain:
+              schema:
+                example: Created
+                title: Created
+                type: string
+          description: Created
+        404:
+          content:
+            text/plain:
+              schema:
+                example: Not found
+                title: Endpoint not found
+                type: string
+          description: Not found response
+        405:
+          content:
+            text/plain:
+              schema:
+                example: The format is not valid
+                title: Invalid input
+                type: string
+          description: Invalid input
+      summary: Modifica un dato de ruido previamente registrado
+      tags:
+      - Ruido
+      x-swagger-router-controller: Ruido
+  /humidity:
+    delete:
+      description: Eliminado un dato de humedad en la base de datos.
+      operationId: deleteHumidity
+      parameters:
+      - description: Id del dato de humedad
+        explode: true
+        in: query
+        name: idHumidity
+        required: true
+        schema:
+          format: int32
+          type: integer
+        style: form
+      responses:
+        201:
+          content:
+            text/plain:
+              schema:
+                example: Created
+                title: Created
+                type: string
+          description: Created
+        404:
+          content:
+            text/plain:
+              schema:
+                example: Not found
+                title: Endpoint not found
+                type: string
+          description: Not found response
+        405:
+          content:
+            text/plain:
+              schema:
+                example: The format is not valid
+                title: Invalid input
+                type: string
+          description: Invalid input
+      summary: Eliminado de datos de humedad.
+      tags:
+      - Humedad
+      x-swagger-router-controller: Humedad
+    get:
+      description: Devuelve todos los datos relacionados con la humedad.
+      operationId: getHumidity
+      parameters:
+      - description: Fecha de la recogida de la información
+        explode: true
+        in: query
+        name: date
+        required: true
+        schema:
+          type: string
+        style: form
+      responses:
+        201:
+          content:
+            text/plain:
+              schema:
+                example: Created
+                title: Created
+                type: string
+          description: Created
+        404:
+          content:
+            text/plain:
+              schema:
+                example: Not found
+                title: Endpoint not found
+                type: string
+          description: Not found response
+        405:
+          content:
+            text/plain:
+              schema:
+                example: The format is not valid
+                title: Invalid input
+                type: string
+          description: Invalid input
+      summary: Devuelve todos los datos relacionados con la humedad.
+      tags:
+      - Humedad
+      x-swagger-router-controller: Humedad
+    post:
+      description: Creacion de nuevos datos asociados a la humedad.
+      operationId: postHumidity
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Humidity'
+        required: true
+      responses:
+        201:
+          content:
+            text/plain:
+              schema:
+                example: Created
+                title: Created
+                type: string
+          description: Created
+        404:
+          content:
+            text/plain:
+              schema:
+                example: Not found
+                title: Endpoint not found
+                type: string
+          description: Not found response
+        405:
+          content:
+            text/plain:
+              schema:
+                example: The format is not valid
+                title: Invalid input
+                type: string
+          description: Invalid input
+      summary: Registra un nuevo dato de humedad.
+      tags:
+      - Humedad
+      x-swagger-router-controller: Humedad
+    put:
+      description: Modifica un dato de humedad previamente registrado
+      operationId: putHumidity
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Humidity'
+        required: true
+      responses:
+        201:
+          content:
+            text/plain:
+              schema:
+                example: Created
+                title: Created
+                type: string
+          description: Created
+        404:
+          content:
+            text/plain:
+              schema:
+                example: Not found
+                title: Endpoint not found
+                type: string
+          description: Not found response
+        405:
+          content:
+            text/plain:
+              schema:
+                example: The format is not valid
+                title: Invalid input
+                type: string
+          description: Invalid input
+      summary: Modifica un dato de humedad previamente registrado
+      tags:
+      - Humedad
+      x-swagger-router-controller: Humedad
+  /temperature:
+    delete:
+      description: Eliminado un dato de temperatura en la base de datos.
+      operationId: deleteTemperature
+      parameters:
+      - description: Id del dato de temperatura
+        explode: true
+        in: query
+        name: idTemperature
+        required: true
+        schema:
+          format: int32
+          type: integer
+        style: form
+      responses:
+        201:
+          content:
+            text/plain:
+              schema:
+                example: Created
+                title: Created
+                type: string
+          description: Created
+        404:
+          content:
+            text/plain:
+              schema:
+                example: Not found
+                title: Endpoint not found
+                type: string
+          description: Not found response
+        405:
+          content:
+            text/plain:
+              schema:
+                example: The format is not valid
+                title: Invalid input
+                type: string
+          description: Invalid input
+      summary: Eliminado de datos de temperatura.
+      tags:
+      - Temperatura
+      x-swagger-router-controller: Temperatura
+    get:
+      description: Devuelve todos los datos relacionados con la temperatura.
+      operationId: getTemperature
+      parameters:
+      - description: Fecha de la recogida de la información
+        explode: true
+        in: query
+        name: date
+        required: true
+        schema:
+          type: string
+        style: form
+      responses:
+        201:
+          content:
+            text/plain:
+              schema:
+                example: Created
+                title: Created
+                type: string
+          description: Created
+        404:
+          content:
+            text/plain:
+              schema:
+                example: Not found
+                title: Endpoint not found
+                type: string
+          description: Not found response
+        405:
+          content:
+            text/plain:
+              schema:
+                example: The format is not valid
+                title: Invalid input
+                type: string
+          description: Invalid input
+      summary: Devuelve todos los datos relacionados con la temperatura.
+      tags:
+      - Temperatura
+      x-swagger-router-controller: Temperatura
+    post:
+      description: Creacion de nuevos datos asociados a la temperatura.
+      operationId: postTemperature
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Temperature'
+        required: true
+      responses:
+        201:
+          content:
+            text/plain:
+              schema:
+                example: Created
+                title: Created
+                type: string
+          description: Created
+        404:
+          content:
+            text/plain:
+              schema:
+                example: Not found
+                title: Endpoint not found
+                type: string
+          description: Not found response
+        405:
+          content:
+            text/plain:
+              schema:
+                example: The format is not valid
+                title: Invalid input
+                type: string
+          description: Invalid input
+      summary: Registra un nuevo dato de temperatura.
+      tags:
+      - Temperatura
+      x-swagger-router-controller: Temperatura
+    put:
+      description: Modifica un dato de temperatura previamente registrado
+      operationId: putTemperature
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Temperature'
+        required: true
+      responses:
+        201:
+          content:
+            text/plain:
+              schema:
+                example: Created
+                title: Created
+                type: string
+          description: Created
+        404:
+          content:
+            text/plain:
+              schema:
+                example: Not found
+                title: Endpoint not found
+                type: string
+          description: Not found response
+        405:
+          content:
+            text/plain:
+              schema:
+                example: The format is not valid
+                title: Invalid input
+                type: string
+          description: Invalid input
+      summary: Modifica un dato de temperatura previamente registrado
+      tags:
+      - Temperatura
+      x-swagger-router-controller: Temperatura
+  /no2_co:
+    delete:
+      description: Eliminado un dato de no2_co en la base de datos.
+      operationId: deleteNo2_co
+      parameters:
+      - description: Id del dato de no2_co
+        explode: true
+        in: query
+        name: idNo2_co
+        required: true
+        schema:
+          format: int32
+          type: integer
+        style: form
+      responses:
+        201:
+          content:
+            text/plain:
+              schema:
+                example: Created
+                title: Created
+                type: string
+          description: Created
+        404:
+          content:
+            text/plain:
+              schema:
+                example: Not found
+                title: Endpoint not found
+                type: string
+          description: Not found response
+        405:
+          content:
+            text/plain:
+              schema:
+                example: The format is not valid
+                title: Invalid input
+                type: string
+          description: Invalid input
+      summary: Eliminado de datos de no2_co.
+      tags:
+      - Nitrogeno Monoxido Carbono
+      x-swagger-router-controller: NitrogenoMonoxidoCarbono
+    get:
+      description: Devuelve todos los datos relacionados con no2_co.
+      operationId: getNo2_co
+      parameters:
+      - description: Fecha de la recogida de la información
+        explode: true
+        in: query
+        name: date
+        required: true
+        schema:
+          type: string
+        style: form
+      responses:
+        201:
+          content:
+            text/plain:
+              schema:
+                example: Created
+                title: Created
+                type: string
+          description: Created
+        404:
+          content:
+            text/plain:
+              schema:
+                example: Not found
+                title: Endpoint not found
+                type: string
+          description: Not found response
+        405:
+          content:
+            text/plain:
+              schema:
+                example: The format is not valid
+                title: Invalid input
+                type: string
+          description: Invalid input
+      summary: Devuelve todos los datos relacionados con no2_co.
+      tags:
+      - Nitrogeno Monoxido Carbono
+      x-swagger-router-controller: NitrogenoMonoxidoCarbono
+    post:
+      description: Creacion de nuevos datos asociados a no2_co.
+      operationId: postNo2_co
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/No2_co'
+        required: true
+      responses:
+        201:
+          content:
+            text/plain:
+              schema:
+                example: Created
+                title: Created
+                type: string
+          description: Created
+        404:
+          content:
+            text/plain:
+              schema:
+                example: Not found
+                title: Endpoint not found
+                type: string
+          description: Not found response
+        405:
+          content:
+            text/plain:
+              schema:
+                example: The format is not valid
+                title: Invalid input
+                type: string
+          description: Invalid input
+      summary: Registra un nuevo dato de no2_co.
+      tags:
+      - Nitrogeno Monoxido Carbono
+      x-swagger-router-controller: NitrogenoMonoxidoCarbono
+    put:
+      description: Modifica un dato de no2_co previamente registrado
+      operationId: putNo2_co
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/No2_co'
+        required: true
+      responses:
+        201:
+          content:
+            text/plain:
+              schema:
+                example: Created
+                title: Created
+                type: string
+          description: Created
+        404:
+          content:
+            text/plain:
+              schema:
+                example: Not found
+                title: Endpoint not found
+                type: string
+          description: Not found response
+        405:
+          content:
+            text/plain:
+              schema:
+                example: The format is not valid
+                title: Invalid input
+                type: string
+          description: Invalid input
+      summary: Modifica un dato de no2_co previamente registrado
+      tags:
+      - Nitrogeno Monoxido Carbono
+      x-swagger-router-controller: NitrogenoMonoxidoCarbono
+components:
+  responses:
+    201:
+      content:
+        text/plain:
+          schema:
+            example: Created
+            title: Created
+            type: string
+      description: Created
+    404:
+      content:
+        text/plain:
+          schema:
+            example: Not found
+            title: Endpoint not found
+            type: string
+      description: Not found response
+    405:
+      content:
+        text/plain:
+          schema:
+            example: The format is not valid
+            title: Invalid input
+            type: string
+      description: Invalid input
+  schemas:
+    Ozone:
+      example:
+        date: 01/10/2019
+        amount: 45.5
+        idOzone: 1
+      properties:
+        idOzone:
+          example: 1
+          format: int64
+          type: integer
+        amount:
+          example: 45.5
+          type: number
+        date:
+          example: 01/10/2019
+          type: string
+      type: object
+    AirQuality:
+      example:
+        date: 01/10/2019
+        amount: 45.5
+        idAirQuality: 1
+      properties:
+        idAirQuality:
+          example: 1
+          format: int64
+          type: integer
+        amount:
+          example: 45.5
+          type: number
+        date:
+          example: 01/10/2019
+          type: string
+      type: object
+    Luminosity:
+      example:
+        idLuminosity: 1
+        date: 01/10/2019
+        amount: 45.5
+      properties:
+        idLuminosity:
+          example: 1
+          format: int64
+          type: integer
+        amount:
+          example: 45.5
+          type: number
+        date:
+          example: 01/10/2019
+          type: string
+      type: object
+    Noise:
+      example:
+        date: 01/10/2019
+        amount: 45.5
+        idNoise: 1
+      properties:
+        idNoise:
+          example: 1
+          format: int64
+          type: integer
+        amount:
+          example: 45.5
+          type: number
+        date:
+          example: 01/10/2019
+          type: string
+      type: object
+    Humidity:
+      example:
+        date: 01/10/2019
+        idHumidity: 1
+        amount: 45.5
+      properties:
+        idHumidity:
+          example: 1
+          format: int64
+          type: integer
+        amount:
+          example: 45.5
+          type: number
+        date:
+          example: 01/10/2019
+          type: string
+      type: object
+    Temperature:
+      example:
+        date: 01/10/2019
+        idTemperature: 1
+        amount: 45.5
+      properties:
+        idTemperature:
+          example: 1
+          format: int64
+          type: integer
+        amount:
+          example: 45.5
+          type: number
+        date:
+          example: 01/10/2019
+          type: string
+      type: object
+    No2_co:
+      properties:
+        idNo2_co:
+          example: 1
+          format: int64
+          type: integer
+        amount:
+          example: 45.5
+          type: number
+        date:
+          example: 01/10/2019
+          type: string
+      type: object
